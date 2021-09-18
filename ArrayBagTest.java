@@ -1,4 +1,4 @@
-//testing
+//test class for ResizableArrayBag
 public class ArrayBagTest {
     public static void main(String[] args)
     {
