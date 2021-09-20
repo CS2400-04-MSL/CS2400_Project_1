@@ -99,7 +99,7 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 	}
 
 	// Locates a given entry within the array bag.
-	// Returns the index of the entry, if located, or −1 otherwise
+	// Returns the index of the entry, if located, or -1 otherwise
 	private int getIndexOf(T anEntry)
 	{
 		boolean found = false;

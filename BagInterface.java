@@ -47,7 +47,7 @@ public interface BagInterface<T> {
 	/** Creates a new bag with only things that this bag and a second bag share.
 	 * @param bag2  The other bag to be added in.
 	 * @return New combined bag. */
-	public BagInterface<T> intersecton(BagInterface<T> bag2);
+	public BagInterface<T> intersection(BagInterface<T> bag2);
 	
 	/** Creates a new bag with only things that would be left in this bag after removing anything shared between this bag and a second bag.
 	 * @param bag2  The other bag to be added in.
