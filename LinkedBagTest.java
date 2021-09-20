@@ -4,12 +4,12 @@ public class LinkedBagTest
     public static void main(String[] args)
     {
         //create bag1 and add 0-4
-        LinkedBag bag1 = new LinkedBag();
+        BagInterface<Integer> bag1 = new LinkedBag<Integer>();
         for (int i = 0; i < 5; i++)
             bag1.add(i);
 
         //create bag2 and add 3-9 to it
-        LinkedBag bag2 = new LinkedBag();
+        BagInterface<Integer> bag2 = new LinkedBag<Integer>();
         for (int i = 3; i<10;i++)
             bag2.add(i);
         
@@ -18,7 +18,7 @@ public class LinkedBagTest
 
         //print union, intersection, and difference of bag 1 and bag 2
         System.out.println("Union of bag 1 and bag 2: " + bag1.union(bag2).toArray());
-        System.out.println("Intersection of bag 1 and bag 2: " + bag1.intersection(bag2).toArray());
+        System.out.println("Intersection of bag 1 and bag 2: " + ((LinkedBag<Integer>) bag1).intersection(bag2).toArray());
         System.out.println("Difference between bag 1 and bag 2: " + bag1.difference(bag2).toArray());
     }
 }
