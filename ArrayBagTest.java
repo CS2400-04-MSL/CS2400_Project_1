@@ -1,4 +1,7 @@
-//test class for ResizableArrayBag
+/**
+ * A test of ResizeableArrayBag methods union, intersection, and difference
+ * 
+ */
 public class ArrayBagTest {
     public static void main(String[] args)
     {
@@ -19,5 +22,5 @@ public class ArrayBagTest {
         System.out.println("Union of bag 1 and bag 2: " + bag1.union(bag2).toArray());
         System.out.println("Intersection of bag 1 and bag 2: " + ((ResizeableArrayBag<Integer>) bag1).intersection(bag2).toArray());
         System.out.println("Difference between bag 1 and bag 2: " + bag1.difference(bag2).toArray());
-    }
+    } // end main
 }
