@@ -197,17 +197,12 @@ public final class LinkedBag<T> implements BagInterface<T>
             currentNode = currentNode.next;	// traverse to next node
         } // end while
 
-        // reset currentNode to point to bag2's first node
-        index = 0;
-        currentNode = bag2.firstNode;
+        T[] bag2Array = bag2.toArray();
 
-        // fill union bag w/ bag 2
-        while ((index < numberOfEntries) && (currentNode != null))
+        for (int i = 0; i < bag2Array.length; i++)
         {
-            unionBag.add(currentNode.data);
-            index++;
-            currentNode = currentNode.next;
-        } // end while
+            unionBag.add(bag2Array[i]);
+        }
 
         return unionBag;
     }
