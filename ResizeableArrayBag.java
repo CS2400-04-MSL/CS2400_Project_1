@@ -183,7 +183,7 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 		// fill union bag w/ bag 1
 		// iterate through bag 2 and add to union bag
 
-		BagInterface unionBag = new ResizeableArrayBag;
+		BagInterface unionBag = new ResizeableArrayBag();
 
 		for (int index = 0; index < numEntries; index++)
 		{
@@ -217,7 +217,7 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 
 		//{a, a}
 
-		BagInterface intersectionBag = new ResizeableArrayBag;
+		BagInterface intersectionBag = new ResizeableArrayBag();
 
 		for (int index = 0; index < numEntries; index++)
 		{
@@ -244,7 +244,7 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 				// add # entries based on difference in frequency bag1-bag2
 
 
-		BagInterface differenceBag = new ResizeableArrayBag;
+		BagInterface differenceBag = new ResizeableArrayBag();
 
 		for (int index = 0; index < numEntries; index++)
 		{
