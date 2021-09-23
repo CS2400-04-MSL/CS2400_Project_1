@@ -85,7 +85,7 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 		boolean result = true;
 		int index;
 
-		if (!bag.contains(anEntry)) 
+		if (!contains(anEntry)) 
 			result = false; // return false if entry not found
 		else
 		{ // removes entry and moves the last entry in array to the empty spot
@@ -131,13 +131,13 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 	/** Counts the number of times a given entry appears in this bag.
 	 * @param anEntry  The entry to be counted.
 	 * @return  The number of times anEntry appears in the bag. */
-	public int getFrequencyOf(T anEntry);
+	public int getFrequencyOf(T anEntry)
 	{
 		int frequency = 0;
 
 		for (int i = 0; i < numEntries; i++)
 		{
-			if (anEntry.equals(bag.[i]))
+			if (anEntry.equals(bag[i]))
 				frequency++;
 		}
 
@@ -219,13 +219,13 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 
 		BagInterface intersectionBag = new ResizeableArrayBag;
 
-		for (int index = 0; index < numEntries(); index++)
+		for (int index = 0; index < numEntries; index++)
 		{
 			if (!intersectionBag.contains(bag[index]))
 			{
 				for (int freq = 0; freq < getFrequencyOf(bag[index]) && freq < bag2.getFrequencyOf(bag[index]); freq++)
 				{
-					intersectionBag.add(bag[index])
+					intersectionBag.add(bag[index]);
 				}
 			}
 		}
@@ -246,9 +246,9 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 
 		BagInterface differenceBag = new ResizeableArrayBag;
 
-		for (int index = 0; index < numEntries; i++)
+		for (int index = 0; index < numEntries; index++)
 		{
-			if (!intersectionBag.contains(bag[index]))
+			if (!differenceBag.contains(bag[index]))
 			{
 				for (int freqDiff = 0; freqDiff < (getFrequencyOf(bag[index]) - bag2.getFrequencyOf(bag[index])); freqDiff++)
 				{
