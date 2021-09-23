@@ -25,7 +25,7 @@ public class LinkedBagTest
 
         //print union, intersection, and difference of bag 1 and bag 2
         System.out.println("Union of bag 1 and bag 2: " + Arrays.toString(bag1.union(bag2).toArray()));
-        System.out.println("Intersection of bag 1 and bag 2: " + Arrays.toString(((ResizeableArrayBag<Integer>) bag1).intersection(bag2).toArray()));
+        System.out.println("Intersection of bag 1 and bag 2: " + Arrays.toString(((LinkedBag<Integer>) bag1).intersection(bag2).toArray()));
         System.out.println("Difference between bag 1 and bag 2: " + Arrays.toString(bag1.difference(bag2).toArray()));
     } //end main
 }
