@@ -81,10 +81,13 @@ public final class LinkedBag<T> implements BagInterface<T>
         return result;
     }
 
-    // This private method needed for remove(T anEntry). Section 3.23
-    // Locates a given entry within this bag.
-    // Returns a reference to the node containing the entry, if located,
-    // or null otherwise.
+    /** private method needed for remove(T anEntry). Section 3.23
+     *  Locates a given entry within this bag.
+     *  Returns a reference to the node containing the entry, if located,
+     *  or null otherwise.
+     * @param anEntry
+     * @return
+     */
     private Node getReferenceTo(T anEntry)
     {
         boolean found = false;
@@ -101,14 +104,14 @@ public final class LinkedBag<T> implements BagInterface<T>
     } // end getReferenceTo
 
 
-
-    // Removes all entries from this bag. Section 3.24
+    /**
+     * Removes all entries from this bag. Section 3.24
+     */
     public void clear()
     {
         while (!isEmpty())
             remove();
     }
-
 
     /** Counts the number of times a given entry appears in this bag. Section 3.16
      * @param anEntry  The entry to be counted.
@@ -130,7 +133,6 @@ public final class LinkedBag<T> implements BagInterface<T>
         return frequency;
     }
 
-
     /** Tests whether this bag contains a given entry. Section 3.17
      * @param anEntry  The entry to find.
      * @return  True if the bag contains anEntry, or false if not. */
@@ -149,7 +151,6 @@ public final class LinkedBag<T> implements BagInterface<T>
 
         return found;
     }
-
 
     /** Retrieves all entries that are in this bag. pg 184
      * @return  A newly allocated array of all the entries in the bag.Note: If the bag is empty, the returned array is empty. */
@@ -173,17 +174,11 @@ public final class LinkedBag<T> implements BagInterface<T>
     } // end toArray
 
 
-
-
     /** Creates a new bag with everything from this bag and a second bag.
      * @param bag2  The other bag to be added in.
      * @return New combined bag. */
     public BagInterface<T> union(BagInterface<T> bag2)
     {
-        // create a union bag
-        // fill union bag w/ bag 1
-        // iterate through bag 2 and add to union bag
-
         int index = 0;
         Node currentNode = firstNode;
         BagInterface unionBag = new LinkedBag();
@@ -195,10 +190,12 @@ public final class LinkedBag<T> implements BagInterface<T>
             unionBag.add(currentNode.data);	// add entry to the linked list
             index++;
             currentNode = currentNode.next;	// traverse to next node
-        } // end while
+        }
 
+        // add contents of bag2 to a more easily accessible array
         T[] bag2Array = bag2.toArray();
 
+        // iterate through bag 2 array and add to union bag
         for (int i = 0; i < bag2Array.length; i++)
         {
             unionBag.add(bag2Array[i]);
@@ -207,17 +204,11 @@ public final class LinkedBag<T> implements BagInterface<T>
         return unionBag;
     }
 
-
-
     /** Creates a new bag with only things that this bag and a second bag share.
      * @param bag2  The other bag to be added in.
      * @return New combined bag. */
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
-        // iterate through bag 1
-        // add matches to intersection bag if they don't already exist in the intersection bag
-        // add # entries based on lowest frequency
-
         int index = 0;
         Node currentNode = firstNode;
         BagInterface intersectionBag = new LinkedBag();
@@ -239,16 +230,11 @@ public final class LinkedBag<T> implements BagInterface<T>
         return intersectionBag;
     }
 
-
     /** Creates a new bag with only things that would be left in this bag after removing anything shared between this bag and a second bag.
      * @param bag2  The other bag to be added in.
      * @return New combined bag. */
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
-        // iterate through bag 1
-        // add entry to differenceBag if entry doesn't already exist in differenceBag
-        // add # entries based on difference in frequency bag1-bag2
-
         int index = 0;
         Node currentNode = firstNode;
         BagInterface differenceBag = new LinkedBag();
@@ -271,8 +257,9 @@ public final class LinkedBag<T> implements BagInterface<T>
     }
 
 
-
-
+    /**
+     *  A class of Nodes that stores a generic type and points to the next node
+     */
     private class Node // private inner class. Section 3.6
     {
         private T data; // Entry in bag

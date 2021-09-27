@@ -4,7 +4,10 @@
  */
 import java.util.Arrays;
 
-public class LinkedBagTest 
+/**
+ * A class containing methods for testing the LinkedBag implementation
+ */
+public class LinkedBagTest
 {
     public static void main(String[] args)
     {

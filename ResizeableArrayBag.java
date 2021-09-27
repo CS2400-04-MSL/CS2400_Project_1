@@ -113,8 +113,9 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 		return result;
 	}
 
-	// Locates a given entry within the array bag.
-	// Returns the index of the entry, if located, or -1 otherwise
+	/** Locates a given entry within the array bag.
+	 * @param anEntry  The entry to be found
+	 * @return  The index of the entry, if located, or -1 otherwise */
 	private int getIndexOf(T anEntry)
 	{
 		checkIntegrity();
@@ -199,20 +200,19 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 	 * @return New combined bag. */
 	public BagInterface<T> union(BagInterface<T> bag2)
 	{
-		// create a union bag
-		// fill union bag w/ bag 1
-		// iterate through bag 2 and add to union bag
-
 		checkIntegrity();
 		BagInterface unionBag = new ResizeableArrayBag();
 
+		// fill union bag w/ bag 1
 		for (int index = 0; index < numEntries; index++)
 		{
 			unionBag.add(bag[index]);
 		}
 
+		// add contents of bag2 to a more easily accessible array
 		T[] bag2Array = bag2.toArray();
 
+		// iterate through bag 2 array and add to union bag
 		for (int index = 0; index < bag2Array.length; index++)
 		{
 			unionBag.add(bag2Array[index]);
@@ -220,52 +220,43 @@ public final class ResizeableArrayBag<T> implements BagInterface<T> {
 
 		return unionBag;
 	}
-	
 
 	/** Creates a new bag with only things that this bag and a second bag share.
 	 * @param bag2  The other bag to be added in.
 	 * @return New combined bag. */
 	public BagInterface<T> intersection(BagInterface<T> bag2)
 	{
-
-		// interate through bag 1
-			//add matches to intersection bag if they don't already exist in the intersection bag
-				// add # entries based on lowest frequency
-
 		checkIntegrity();
 		BagInterface intersectionBag = new ResizeableArrayBag();
 
+		// iterate through bag 1
 		for (int index = 0; index < numEntries; index++)
-		{
+		{	// add matches to intersection bag if they don't already exist in the intersection bag
 			if (!intersectionBag.contains(bag[index]))
-			{
+			{	// add # entries based on lowest frequency */
 				for (int freq = 0; freq < getFrequencyOf(bag[index]) && freq < bag2.getFrequencyOf(bag[index]); freq++)
 				{
 					intersectionBag.add(bag[index]);
 				}
 			}
 		}
-
 		return intersectionBag;
 	}
-	
+
 
 	/** Creates a new bag with only things that would be left in this bag after removing anything shared between this bag and a second bag.
 	 * @param bag2  The other bag to be added in.
 	 * @return New combined bag. */
 	public BagInterface<T> difference(BagInterface<T> bag2)
 	{
-		// iterate through bag 1
-			// add entry to differenceBag if entry doesn't already exist in differenceBag
-				// add # entries based on difference in frequency bag1-bag2
-
 		checkIntegrity();
 		BagInterface differenceBag = new ResizeableArrayBag();
 
+		// iterate through bag 1
 		for (int index = 0; index < numEntries; index++)
-		{
+		{	// add entry to differenceBag if entry doesn't already exist in differenceBag
 			if (!differenceBag.contains(bag[index]))
-			{
+			{	// add # entries based on difference in frequency bag1-bag2
 				for (int freqDiff = 0; freqDiff < (getFrequencyOf(bag[index]) - bag2.getFrequencyOf(bag[index])); freqDiff++)
 				{
 					differenceBag.add(bag[index]);

@@ -4,6 +4,9 @@
  */
 import java.util.Arrays;
 
+/**
+ * A class containing test methods for the ResizeableArrayBag implementation
+ */
 public class ArrayBagTest {
     public static void main(String[] args)
     {
