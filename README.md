@@ -1,5 +1,5 @@
 # CS2400_Project_1
-Group name M.S.L. : Manji Hui, June Watson, Leonard Woo
+Group name M.S.L. : Manji Hui (JustAManji), June Watson (SulfurousImpersonation), Leonard Woo (lwoo66)
 
 Maji Hui - BagInterface.java, efficiency doc
 
